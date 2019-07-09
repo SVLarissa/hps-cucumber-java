@@ -5,10 +5,10 @@ before_install:
   - rvm install 2.2
   - rvm use 2.2
   - gem install hiptest-publisher
-  - "hiptest-publisher -c cucumber-java.conf --token=43124388181495066423269696316541147854603758924727344778 --test-run-id=272851"
+  - "hiptest-publisher --config=cucumber-java.conf --token=43124388181495066423269696316541147854603758924727344778 --test-run-id=272851 --without=actionwords"
 
 script:
   - mvn test
 
 after_script:
-  - hiptest-publisher -c cucumber-java.conf --token=43124388181495066423269696316541147854603758924727344778  --push=target/cuke-results.json --test-run-id=272851
+  - hiptest-publisher -c cucumber-java.conf --token=43124388181495066423269696316541147854603758924727344778 --push-format=cucumber-json --push=target/cuke-results.json --test-run-id=272851
