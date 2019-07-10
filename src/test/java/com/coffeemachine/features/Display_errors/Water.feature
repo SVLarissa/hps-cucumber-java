@@ -21,3 +21,8 @@ Feature: Water
     Given I take "55" coffees
     When I fill the water tank
     Then message "Ready" should be displayed
+    
+   Scenario: When the test fails, Hiptest reports it
+    Given I take "55" coffees
+    When I fill the water tank
+    Then message "I am the walrus" should be displayed
